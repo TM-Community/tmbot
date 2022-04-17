@@ -1,0 +1,36 @@
+{
+  "name": "tmbot",
+  "version": "1.0.0",
+  "description": "Discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMFaisal-Discord-Server/tmbot.git"
+  },
+  "keywords": [
+    "discord.js",
+    "node.js",
+    "js",
+    "javascript",
+    "node",
+    "discord",
+    "bot"
+  ],
+  "author": "8bou3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TMFaisal-Discord-Server/tmbot/issues"
+  },
+  "homepage": "https://github.com/TMFaisal-Discord-Server/tmbot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
+  }
+}
