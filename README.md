@@ -5,7 +5,7 @@
 <div align="center">
   <br />
   <p>
-    <a href="https://discord.com/api/oauth2/authorize?client_id=736338085641453598&permissions=536870911999&scope=bot%20applications.commands"><img src="https://media.discordapp.net/attachments/785507613205987330/913202431213584414/TMBanner.gif" alt="TMBanner" /></a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=736338085641453598&permissions=1644971949567&scope=bot%20applications.commands"><img src="https://media.discordapp.net/attachments/785507613205987330/913202431213584414/TMBanner.gif" alt="TMBanner" /></a>
   </p>
   <br />
   <p>
@@ -36,7 +36,7 @@ All code is licensed under the [MIT license][license].
 
 <!-- Markdown link & img dfn's -->
 [fork]: https://github.com/TMFaisal-Discord-Server/tmbot/fork
-[invite-url]: https://discord.com/api/oauth2/authorize?client_id=736338085641453598&permissions=536870911999&scope=bot%20applications.commands
+[invite-url]: https://discord.com/api/oauth2/authorize?client_id=736338085641453598&permissions=1644971949567&scope=bot%20applications.commands
 [discord-url]: https://discord.gg/tmc
 [crowdin-url]: https://crowdin.com/translate/tmbot
 [license]: LICENSE
