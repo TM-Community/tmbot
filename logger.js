@@ -1,13 +1,10 @@
 const { WebhookClient } = require("discord.js");
 
+const getTime = () => `[${new Date().toLocaleTimeString()}]`
 class Logger {
-  log = (message) =>
-    console.log(this.getTime(), message);
-  warn = (message) =>
-    console.warn(this.getTime(), message);
-  error = (message) =>
-    console.error(this.getTime(), message);
-  getTime = () => `[${new Date().toLocaleTimeString()}]`;
+  log = (message) => console.log(getTime(), message);
+  warn = (message) => console.warn(getTime(), message);
+  error = (message) => console.error(getTime(), message);
   /**
    * @param {{ logsWebhookUrl: String, warnsWebhookUrl: String, errorsWebhookUrl: String, }} options
    */
@@ -19,19 +16,16 @@ class Logger {
       this.errorsWebhook = new WebhookClient({ url: options?.errorsWebhookUrl });
 
       this.log = (message) => {
-        const time = this.getTime();
-        this.logsWebhook.send(`${time} ${message}`);
-        console.log(time, message);
+        this.logsWebhook.send(`${getTime()} ${message}`);
+        console.log(getTime(), message);
       };
       this.warn = (message) => {
-        const time = this.getTime();
-        this.errorsWebhook.send(`${time} ${message}`);
-        console.warn(time, message);
+        this.errorsWebhook.send(`${getTime()} ${message}`);
+        console.warn(getTime(), message);
       };
       this.error = (message) => {
-        const time = this.getTime();
-        this.errorsWebhook.send(`${time} ${message}`);
-        console.error(time, message);
+        this.errorsWebhook.send(`${getTime()} ${message}`);
+        console.error(getTime(), message);
       };
     }
   }
