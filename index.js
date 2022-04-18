@@ -8,11 +8,12 @@
  */
 
 require("dotenv").config();
+const { error } = require("./logger.js")
 
-process.on("unhandledRejection", (r, p) => console.error(r, p));
-process.on("uncaughtException", (e, o) => console.error(e, o));
-process.on("uncaughtExceptionMonitor", (e, o) => console.error(e, o));
-process.on("multipleResolves", (t, p, v) => console.error(t, v, p));
+process.on("unhandledRejection", (r, p) => error(r, p));
+process.on("uncaughtException", (e, o) => error(e, o));
+process.on("uncaughtExceptionMonitor", (e, o) => error(e, o));
+process.on("multipleResolves", (t, p, v) => error(t, v, p));
 
 const { Client } = require("discord.js");
 const { join } = require("path")
