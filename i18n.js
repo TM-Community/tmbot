@@ -6,7 +6,7 @@ class I18n {
   directory = join(__dirname, "locales");
   extension = "json";
   returnEmptyString = false;
-  default = "en";
+  defaultLocale = "en";
   retryInDefault = true;
   mustache = ["{{", "}}"];
   isDev = process.env.DEVELOPMENT;
@@ -29,7 +29,7 @@ class I18n {
    * @returns {Boolean} - If the translation exists
    */
   has(path, locale) {
-    if (!locale) locale = this.default;
+    if (!locale) locale = this.defaultLocale;
     path = path.split(".");
 
     if (!this.strings.has(locale) || !this.strings.get(locale).has(path[0]))
@@ -52,7 +52,7 @@ class I18n {
    * @returns {String} - The translation
    */
   get(path, variables, locale) {
-    if (!locale) locale = this.default;
+    if (!locale) locale = this.defaultLocale;
     path = path.split(".");
     let string;
 
@@ -60,8 +60,8 @@ class I18n {
       string = this.strings.get(locale).get(path[0]);
     } else {
       if (this.retryInDefault) {
-        if (locale !== this.default && this.has(path.join("."), this.default))
-          return this.get(path.join("."), variables, this.default);
+        if (locale !== this.defaultLocale && this.has(path.join("."), this.defaultLocale))
+          return this.get(path.join("."), variables, this.defaultLocale);
 
         if (this.isDev) {
           if (this.has(path.join("."), "source"))
