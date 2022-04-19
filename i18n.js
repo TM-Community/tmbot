@@ -93,7 +93,7 @@ class I18n {
     this.strings = loadFiles(this.directory, this.extension, {
       exclude: this.isDev ? undefined : RegExp(`${this.directory}/source`),
     });
-    this.locales = this.strings.map((v, k) => k);
+    this.locales = this.strings.map((_value, key) => key);
   }
 }
 
