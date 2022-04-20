@@ -6,9 +6,11 @@ module.exports = {
   name: "ready",
   once: true,
   /**
-   * @param {Client} client 
+   * @param {Client} client
    */
   async execute(client) {
-    log(i18n.get("client.ready", { user: client.user.tag }));
-  }
-}
+    log(
+      i18n.get("client.ready", i18n.defaultLocale, { user: client.user.tag })
+    );
+  },
+};

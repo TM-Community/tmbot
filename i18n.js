@@ -47,45 +47,42 @@ class I18n {
   /**
    * Get translation
    * @param {String} path - Path to the translation e.g. "user.name"
-   * @param {Object} variables - Variables to replace in the translation
    * @param {String} locale - Locale to get the translation from
+   * @param {Object} variables - Variables to replace in the translation
    * @returns {String} - The translation
    */
-  get(path, variables, locale) {
-    if (!locale) locale = this.defaultLocale;
-    path = path.split(".");
+  get(path, locale = this.defaultLocale, variables = {}) {
+    const empty = () => {
+      warn(`No translation found for ${path}`);
+      return this.returnEmptyString ? "" : path;
+    };
+    let pathArray = path.split(".");
     let string;
 
-    if (this.has(path.join("."), locale)) {
-      string = this.strings.get(locale).get(path[0]);
-    } else {
+    if (!this.has(path, locale)) {
       if (this.retryInDefault) {
-        if (locale !== this.defaultLocale && this.has(path.join("."), this.defaultLocale))
-          return this.get(path.join("."), variables, this.defaultLocale);
+        if (this.has(path, this.defaultLocale))
+          return this.get(path, this.defaultLocale, variables);
 
-        if (this.isDev) {
-          if (this.has(path.join("."), "source"))
-            return this.get(path.join("."), variables, "source");
-
-          warn(`Translation not found for ${path.join(".")}`);
-        }
+        if (this.isDev && this.has(path, "source"))
+          return this.get(path, "source", variables);
       }
 
-      return this.returnEmptyString ? "" : path.join(".");
+      return empty();
     }
 
-    for (let i = 1; i < path.length; i++) {
-      if (string[path[i]]) string = string[path[i]];
-      else return this.returnEmptyString ? "" : path.join(".");
+    string = this.strings.get(locale).get(pathArray[0]);
+    for (let i = 1; i < pathArray.length; i++) {
+      if (string[pathArray[i]]) string = string[pathArray[i]];
+      else return empty();
     }
 
-    if (variables)
-      for (let variable in variables) {
-        string = string.replace(
-          this.mustacheRegex(escapeRegExp(variable)),
-          variables[variable]
-        );
-      }
+    for (let variable in variables) {
+      string = string.replace(
+        this.mustacheRegex(escapeRegExp(variable)),
+        variables[variable]
+      );
+    }
 
     return string;
   }
