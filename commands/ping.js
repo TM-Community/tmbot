@@ -1,4 +1,5 @@
 const { CommandInteraction, Client } = require("discord.js");
+const ms = require("ms");
 const { User, Channel, Guild } = require("../db");
 const i18n = require("../i18n");
 
@@ -14,6 +15,7 @@ module.exports = {
       content: i18n.get("ping.response", locale, {
         ping,
         ws: client.ws.ping,
+        uptime: ms(client.uptime, { long: true }),
       }),
     });
   },
