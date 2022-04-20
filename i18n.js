@@ -1,13 +1,11 @@
 const { loadFiles } = require("./fs");
 const { join } = require("path");
-const { warn } = require("./logger");
 
 class I18n {
   directory = join(__dirname, "locales");
   extension = "json";
   returnEmptyString = false;
   defaultLocale = "en";
-  retryInDefault = true;
   mustache = ["{{", "}}"];
   isDev = process.env.DEVELOPMENT;
   /**
@@ -52,29 +50,24 @@ class I18n {
    * @returns {String} - The translation
    */
   get(path, locale = this.defaultLocale, variables = {}) {
-    const empty = () => {
-      warn(`No translation found for ${path}`);
-      return this.returnEmptyString ? "" : path;
-    };
+    const empty = this.returnEmptyString ? "" : path;
     let pathArray = path.split(".");
-    let string;
 
     if (!this.has(path, locale)) {
-      if (this.retryInDefault) {
-        if (this.has(path, this.defaultLocale))
+      switch (true) {
+        case this.has(path, this.defaultLocale):
           return this.get(path, this.defaultLocale, variables);
 
-        if (this.isDev && this.has(path, "source"))
+        case this.has(path, "source"):
           return this.get(path, "source", variables);
       }
-
-      return empty();
+      return empty;
     }
 
-    string = this.strings.get(locale).get(pathArray[0]);
+    let string = this.strings.get(locale).get(pathArray[0]);
     for (let i = 1; i < pathArray.length; i++) {
       if (string[pathArray[i]]) string = string[pathArray[i]];
-      else return empty();
+      else return empty;
     }
 
     for (let variable in variables) {
