@@ -15,6 +15,7 @@ process.on("uncaughtException", (e, o) => error(e, o));
 process.on("uncaughtExceptionMonitor", (e, o) => error(e, o));
 process.on("multipleResolves", (t, p, v) => error(t, v, p));
 
+require("./db.js");
 const { Client } = require("discord.js");
 const { join } = require("path");
 const { loadFiles } = require("./fs");
