@@ -1,4 +1,5 @@
 const { Client, Interaction } = require("discord.js");
+const cooldown = require("../cooldown.js");
 const { db, Guild, Channel, User } = require("../db.js");
 const i18n = require("../i18n.js");
 
@@ -58,6 +59,17 @@ module.exports = {
           }),
           ephemeral: true,
         });
+
+      const cooldownKey = `${interaction.commandName}-${interaction.member.id}`;
+      if (cooldown.has(cooldownKey))
+        return interaction.reply({
+          content: i18n.get("interaction.cooldown", locale, {
+            time: cooldown.timeLeft(cooldownKey),
+          }),
+          ephemeral: true,
+        });
+
+      cooldown.set(cooldownKey, command.cooldown ?? 3);
 
       command.execute({ receivedTime, interaction, data, client, locale });
     }
