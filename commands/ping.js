@@ -1,8 +1,13 @@
+const { CommandInteraction, Client } = require("discord.js");
+const { User, Channel, Guild } = require("../db");
 const i18n = require("../i18n");
 
 module.exports = {
   name: "ping",
-  async execute({ receivedTime, interaction, data, client, locale }) {
+  /**
+   * @param {{ receivedTime: Number, interaction: CommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
+   */
+  async execute({ receivedTime, interaction, client, locale }) {
     const responseTime = Date.now();
     const ping = responseTime - receivedTime;
     interaction.reply({
