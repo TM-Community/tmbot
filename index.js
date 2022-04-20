@@ -21,7 +21,7 @@ const { join } = require("path");
 const { loadFiles } = require("./fs");
 
 const client = new Client({
-  intents: [],
+  intents: ["GUILDS"],
 });
 
 loadFiles(join(__dirname, "events"), "js", { oneCollection: true }).each(
@@ -32,5 +32,9 @@ loadFiles(join(__dirname, "events"), "js", { oneCollection: true }).each(
     else client.on(event.name, execute);
   }
 );
+
+client.commands = loadFiles(join(__dirname, "commands"), "js", {
+  oneCollection: true,
+});
 
 client.login(process.env.TOKEN);

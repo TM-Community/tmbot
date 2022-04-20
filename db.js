@@ -189,6 +189,41 @@ class DB {
   }
 }
 
+class Guild {
+  /**
+   * @param {String} id
+   * @param {{ locale?: String }} data
+   */
+  constructor(id, data) {
+    this._id = id;
+    this.locale = data?.locale || defaultLocale;
+  }
+}
+class Channel {
+  /**
+   * @param {String} id
+   * @param {String} guildId
+   * @param {{ locale?: String, blacklisted?: Boolean }} data
+   */
+  constructor(id, guildId, data) {
+    this._id = id;
+    this.guildId = guildId;
+    this.locale = data?.locale || null;
+    this.blacklisted = !!data?.blacklisted;
+  }
+}
+class User {
+  /**
+   * @param {String} id
+   * @param {{ locale?: String, blacklisted?: Boolean }} data
+   */
+  constructor(id, data) {
+    this._id = id;
+    this.locale = data?.locale || null;
+    this.blacklisted = !!data?.blacklisted;
+  }
+}
+
 const db = new DB(process.env.MONGO_URI || "", { timeout: 10000 });
 
-module.exports = { db, DB };
+module.exports = { db, DB, Guild, Channel, User };
