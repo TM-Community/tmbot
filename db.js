@@ -20,7 +20,7 @@ class DB {
       const timeout = setTimeout(
         () =>
           reject(
-            i18n.get("db.timeout", i18n.defaultLocale, { action: "read" })
+            i18n.get("db.timeout", i18n.defaultLocale, { action: "read(checking)" })
           ),
         this.timeout
       );
