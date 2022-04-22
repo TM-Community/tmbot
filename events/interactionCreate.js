@@ -60,7 +60,7 @@ module.exports = {
           ephemeral: true,
         });
 
-      const cooldownKey = `${interaction.commandName}-${interaction.member.id}`;
+      const cooldownKey = `command-${interaction.commandName}-${interaction.member.id}`;
       if (cooldown.has(cooldownKey))
         return interaction.reply({
           content: i18n.get("interaction.cooldown", locale, {
