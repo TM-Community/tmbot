@@ -10,7 +10,7 @@
   <br />
   <p>
     <a href="https://discord.gg/tmc"><img src="https://img.shields.io/discord/734738368205684796?color=ff000f&logo=discord&logoColor=white" alt="TMFaisal's discord server" /></a>
-    <a target="_blank" href="https://crowdin.com/translate/tmbot"><img src="https://badges.crowdin.net/tmbot/localized.svg" alt="Crowdin" /></a>
+    <a target="_blank" href="https://crowdin.com/translate/tmbot/all"><img src="https://badges.crowdin.net/tmbot/localized.svg" alt="Crowdin" /></a>
   </p>
   <br />
   Discord bot for TMFaisal's discord server
@@ -38,6 +38,6 @@ All code is licensed under the [MIT license][license].
 [fork]: https://github.com/TMFaisal-Discord-Server/tmbot/fork
 [invite-url]: https://discord.com/api/oauth2/authorize?client_id=736338085641453598&permissions=1644971949567&scope=bot%20applications.commands
 [discord-url]: https://discord.gg/tmc
-[crowdin-url]: https://crowdin.com/translate/tmbot
+[crowdin-url]: https://crowdin.com/translate/tmbot/all
 [license]: LICENSE
 [example.env]: example.env
