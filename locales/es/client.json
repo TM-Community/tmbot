@@ -1,3 +1,5 @@
 {
-  "ready": "Sesión iniciada como {{user}}"
+  "ready": "Sesión iniciada como {{user}}",
+  "slashCommands": "Loaded slash commands for `{{count}}` guilds",
+  "guildCreate": "Joined guild `{{guild}}`({{id}})"
 }
