@@ -29,6 +29,7 @@ class DB {
         .findOne({ _id: id })
         .then((document) => {
           clearTimeout(timeout);
+          this.cache[collection]?.set(id, document);
           resolve(document !== null);
         })
         .catch((err) => reject(err));
@@ -99,6 +100,7 @@ class DB {
           .findOne({ _id: id })
           .then((document) => {
             clearTimeout(timeout);
+            this.cache[collection]?.set(id, document);
             resolve(document);
           })
           .catch((err) => reject(err));
@@ -152,6 +154,8 @@ class DB {
 
     this.cache = {
       guilds: new Collection(),
+      channels: new Collection(),
+      users: new Collection(),
     };
 
     this.client = new MongoClient(URI, { ignoreUndefined: true });
