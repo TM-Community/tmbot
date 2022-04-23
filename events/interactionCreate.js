@@ -17,20 +17,19 @@ module.exports = {
         ephemeral: true,
       });
 
-    if (!(await db.has("guilds", interaction.guildId)))
-      await db.set("guilds", new Guild(interaction.guildId));
-    if (!(await db.has("channels", interaction.channelId)))
-      await db.set("channels", new Channel(interaction.channelId));
-    if (!(await db.has("users", interaction.member.id)))
-      await db.set("users", new User(interaction.member.id));
-
     /**
      * @type {{ guild: Guild, channel: Channel, user: User }}
      */
     const data = {
-      guild: await db.get("guilds", interaction.guildId),
-      channel: await db.get("channels", interaction.channelId),
-      user: await db.get("users", interaction.member.id),
+      guild: (await db.has("guilds", interaction.guildId))
+        ? await db.get("guilds", interaction.guildId)
+        : new Guild(interaction.guildId),
+      channel: (await db.has("channels", interaction.channelId))
+        ? await db.get("channels", interaction.channelId)
+        : new Channel(interaction.channelId),
+      user: (await db.has("users", interaction.member.id))
+        ? await db.get("users", interaction.member.id)
+        : new User(interaction.member.id),
     };
 
     const locale = data.user.locale || data.channel.locale || data.guild.locale;
