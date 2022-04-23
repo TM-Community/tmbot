@@ -2,55 +2,37 @@ const { db } = require("./db.js");
 const i18n = require("./i18n");
 const { Client, Guild } = require("discord.js");
 
-//--- DONT READ THIS SHIT IF YOU WANT TO KEEP YOUR EYES SAFE ---\\
-
 function getOptions(optionsPath, options, locale) {
-  let commandOptions = [];
-  if (options)
-    for (const option of options) {
-      let choices = [];
-      if (option.choices)
-        for (const choice of option.choices) {
-          let choiceData = {
-            name: i18n.get(
-              `${optionsPath}.${option.name}.${choice.value}`,
-              locale
-            ),
-            value: choice.value,
-          };
-          if (
-            [`${optionsPath}.${option.name}.${choice.value}`, ""].includes(
-              choiceData.name
-            )
-          )
-            choiceData.name = choice.name;
-          choices.push(choiceData);
-        }
-      let optionData = {
-        name: i18n.get(`${optionsPath}.${option.name}.name`, locale),
-        description: i18n.get(
-          `${optionsPath}.${option.name}.description`,
-          locale
-        ),
-        type: option.type,
-        required: option.required,
-        options: option.options
-          ? getOptions(`${optionsPath}.${option.name}`, option.options, locale)
-          : null,
-        choices: choices || null,
+  options = options?.map((option) => {
+    const optionPath = `${optionsPath}.${option.name}`;
+    const name = i18n.get(`${optionPath}.name`, locale);
+    const noName = [`${optionPath}.name`, ""].includes(name);
+    const description = i18n.get(`${optionPath}.description`, locale);
+    const noDescription = [`${optionPath}.description`, ""].includes(
+      description
+    );
+
+    function choiceMapper(choice) {
+      const choicePath = `${optionPath}.${choice.value}`;
+      const choiceName = i18n.get(choicePath, locale);
+      const noChoiceName = [choicePath, ""].includes(choiceName);
+      return {
+        name: noChoiceName ? choice.name : choiceName,
+        value: choice.value,
       };
-      if ([`${optionsPath}.${option.name}.name`, ""].includes(optionData.name))
-        optionData.name = option.name;
-      if (
-        [`${optionsPath}.${option.name}.description`, ""].includes(
-          optionData.description
-        )
-      )
-        optionData.description =
-          option.description || "No description provided";
-      commandOptions.push(optionData);
     }
-  return commandOptions;
+
+    option.choices = option.choices?.map(choiceMapper);
+    return {
+      name: noName ? option.name : name,
+      description: noDescription ? option.description : description,
+      type: option.type,
+      required: option.required,
+      options: getOptions(optionPath, option.options, locale),
+      choices: option.choices,
+    };
+  });
+  return options;
 }
 
 /**
@@ -66,7 +48,7 @@ async function loadSlashCommands(client, guild) {
     let commandData = {
       name: i18n.get(`${command.name}.name`, locale),
       description: i18n.get(`${command.name}.description`, locale),
-      options: getOptions(command.name, command.options, locale) || null,
+      options: getOptions(command.name, command.options, locale),
     };
     commands.push(commandData);
   }
