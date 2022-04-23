@@ -1,3 +1,4 @@
 {
-  "ready": "Logged in as {{user}}"
+  "ready": "Logged in as {{user}}",
+  "slashCommands": "Loaded slash commands for `{{count}}` guilds"
 }
