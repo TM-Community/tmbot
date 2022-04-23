@@ -45,8 +45,10 @@ async function loadSlashCommands(client, guild) {
     : i18n.defaultLocale;
   let commands = [];
   for (const command of client.commands.values()) {
+    const name = i18n.get(`${command.name}.name`, locale);
+    const noName = [`${command.name}.name`, ""].includes(name);
     let commandData = {
-      name: i18n.get(`${command.name}.name`, locale),
+      name: noName ? command.name : name,
       description: i18n.get(`${command.name}.description`, locale),
       options: getOptions(command.name, command.options, locale),
     };
