@@ -9,12 +9,29 @@ class I18n {
   mustache = ["{{", "}}"];
   isDev = process.env.DEVELOPMENT;
   /**
+   *
+   * @param {String} string - String to replace variables in
+   * @param {Object} variables - Variables to replace
+   * @param {String[]} mustache - Mustache to match
+   * @returns
+   */
+  replaceVariables(string, variables, mustache) {
+    for (let variable in variables) {
+      string = string.replace(
+        this.mustacheRegex(escapeRegExp(variable), mustache),
+        variables[variable]
+      );
+    }
+    return string;
+  }
+  /**
    * Get RegExp to match a string with mustache
    * @param {String} string - String to match
+   * @param {String[]} mustache - Mustache to match
    * @returns {RegExp} - The RegExp
    */
-  mustacheRegex(string) {
-    const [start, end] = this.mustache;
+  mustacheRegex(string, mustache = this.mustache) {
+    const [start, end] = mustache;
     return new RegExp(
       `${escapeRegExp(start)}${string}${escapeRegExp(end)}`,
       "g"
@@ -72,12 +89,7 @@ class I18n {
 
     if (typeof string !== "string") return empty;
 
-    for (let variable in variables) {
-      string = string.replace(
-        this.mustacheRegex(escapeRegExp(variable)),
-        variables[variable]
-      );
-    }
+    string = this.replaceVariables(string, variables);
 
     return string;
   }
