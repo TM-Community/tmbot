@@ -207,13 +207,15 @@ class Channel {
   /**
    * @param {String} id
    * @param {String} guildId
-   * @param {{ locale?: String, blacklisted?: Boolean }} data
+   * @param {{ locale?: String, blacklisted?: Boolean, filter: { max: Number, exclude: Boolean, extensions: String[] } }} data
    */
   constructor(id, guildId, data) {
     this._id = id;
     this.guildId = guildId;
+
     this.locale = data?.locale || null;
     this.blacklisted = !!data?.blacklisted;
+    this.filter = data?.filter;
   }
 }
 class User {
