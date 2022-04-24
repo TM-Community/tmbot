@@ -8,7 +8,7 @@ module.exports = {
    * @param {Client} client
    * @param {Message} message
    */
-  async execute(client, message) {
+  async execute(_client, message) {
     const admin = message.member.permissions.has("MANAGE_GUILD");
 
     /**
