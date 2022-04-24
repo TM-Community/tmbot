@@ -38,8 +38,7 @@ module.exports = {
         fileExtensions.includes(extension)
       );
 
-      if (exclude && match) return message.delete();
-      else if (!exclude && !match) return message.delete();
+      if ((exclude && match) || (!exclude && !match)) return message.delete();
     }
   },
 };
