@@ -70,6 +70,8 @@ class I18n {
       else return empty;
     }
 
+    if (typeof string !== "string") return empty;
+
     for (let variable in variables) {
       string = string.replace(
         this.mustacheRegex(escapeRegExp(variable)),
