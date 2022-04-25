@@ -1,24 +1,24 @@
 {
   "name": "filtro",
   "description": "Filtrar mensajes en un canal",
-  "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
-  "set": "**New filter settings for <#{{channel}}>:**\n> mode: `{{mode}}`\n> extensions: `.{{extensions}}`",
-  "cleared": "**Filter settings for <#{{channel}}> cleared**",
+  "notChannel": "<#{{channel}}> no es un canal o no lo puedo alcanzar (Comprueba mis permisos)",
+  "set": "**Nuevos ajustes del filtro para <#{{channel}}>:**\n> modo: `{{mode}}`\n> extensiones: `.{{extensions}}`",
+  "cleared": "**Ajustes del filtro para <#{{channel}}> despejados**",
   "setup": {
-    "name": "set",
+    "name": "establecer",
     "channel": {
       "name": "canal",
-      "description": "Channel to set filters in"
+      "description": "Canal para establecer filtros en"
     },
     "mode": {
       "name": "modo",
-      "description": "Whether to exclude or include",
-      "include": "Delete any file has none of the extensions",
-      "exclude": "Delete any file has one of the extensions"
+      "description": "Ya sea para excluir o para incluir",
+      "include": "Eliminar cualquier archivo que no tenga ninguna de las extensiones",
+      "exclude": "Eliminar cualquier archivo que tenga una de las extensiones"
     },
     "extensions": {
       "name": "extensiones",
-      "description": "Extensions to include/exclude (Keep whitespace between each extension)"
+      "description": "Extensiones para incluir/excluir (Mantener espacio en blanco entre cada extensión)"
     }
   },
   "reset": {
@@ -26,7 +26,7 @@
     "description": "Reiniciar filtros para un canal",
     "channel": {
       "name": "canal",
-      "description": "Channel to reset filters in"
+      "description": "Canal para reiniciar filtros en"
     }
   }
 }
