@@ -15,12 +15,24 @@ class Cooldown {
     return false;
   }
   /**
+   * Set timeout for an existing cooldown
+   * @param {String} key
+   * @param {() => void} callback
+   */
+  addTimeout(key, callback) {
+    if (!this.has(key)) return callback();
+    this.timeouts.set(key, setTimeout(callback, this.timeLeft(key) * 1000));
+  }
+  /**
    * Set cooldown for 'key'
    * @param {String} key - The key to set
    * @param {Number} amount - The cooldown in seconds
+   * @param {() => void} callback - The callback to run when cooldown is over
    */
-  set(key, amount) {
-    this.timestamps.set(key, Date.now() + amount * 1000);
+  set(key, amount, callback) {
+    const amountInMS = amount * 1000;
+    this.timestamps.set(key, Date.now() + amountInMS);
+    if (callback) this.timeouts.set(key, setTimeout(callback, amountInMS));
   }
   /**
    * Get time left for 'key' in seconds
@@ -39,6 +51,8 @@ class Cooldown {
      * @type {Collection<String, Number>}
      */
     this.timestamps = timestamps;
+
+    this.timeouts = new Collection();
   }
 }
 
