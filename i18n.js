@@ -66,8 +66,8 @@ class I18n {
    * @param {Object} variables - Variables to replace in the translation
    * @returns {String} - The translation
    */
-  get(path, locale = this.defaultLocale, variables = {}) {
-    const empty = this.returnEmptyString ? "" : path;
+  get(path, locale = this.defaultLocale, variables = {}, emptyString) {
+    const empty = emptyString ?? this.returnEmptyString ? "" : path;
     let pathArray = path.split(".");
 
     if (!this.has(path, locale)) {
