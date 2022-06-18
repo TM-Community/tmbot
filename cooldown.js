@@ -21,7 +21,13 @@ class Cooldown {
    */
   addTimeout(key, callback) {
     if (!this.has(key)) return callback();
-    this.timeouts.set(key, setTimeout(callback, this.timeLeft(key) * 1000));
+    this.timeouts.set(
+      key,
+      setTimeout(() => {
+        callback();
+        this.timeouts.delete(key);
+      }, this.timeLeft(key) * 1000)
+    );
   }
   /**
    * Set cooldown for 'key'
@@ -32,7 +38,14 @@ class Cooldown {
   set(key, amount, callback) {
     const amountInMS = amount * 1000;
     this.timestamps.set(key, Date.now() + amountInMS);
-    if (callback) this.timeouts.set(key, setTimeout(callback, amountInMS));
+    if (callback)
+      this.timeouts.set(
+        key,
+        setTimeout(() => {
+          callback();
+          this.timeouts.delete(key);
+        }, amountInMS)
+      );
   }
   /**
    * Get time left for 'key' in seconds
