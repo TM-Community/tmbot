@@ -8,7 +8,7 @@ module.exports = {
    * @param {Client} client
    * @param {Message} message
    */
-  async execute(_client, message) {
+  async execute(client, message) {
     const admin = message.member.permissions.has("MANAGE_GUILD");
 
     /**
@@ -39,6 +39,24 @@ module.exports = {
       );
 
       if ((exclude && match) || (!exclude && !match)) return message.delete();
+    }
+
+    if (message.author.id !== client.user.id && data.channel.sticky) {
+      const { content, color, lastId } = data.channel.sticky;
+
+      const cooldownKey = `sticky-${message.channelId}`;
+
+      if (!cooldown.has(cooldownKey))
+        cooldown.set(cooldownKey, 1, async () => {
+          if (lastId) message.channel.messages.delete(lastId);
+
+          const newMessage = await message.channel.send({
+            embeds: [{ description: content, color }],
+          });
+
+          data.channel.sticky.lastId = newMessage.id;
+          db.set("channels", data.channel);
+        });
     }
   },
 };
