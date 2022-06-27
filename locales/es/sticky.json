@@ -1,27 +1,27 @@
 {
-  "name": "sticky",
-  "description": "Manage sticky messages",
-  "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
-  "invalidColor": "`{{color}}` is not a valid hex color",
-  "set": "**New sticky message in <#{{channel}}>:**\n_ _",
-  "cleared": "**Sticky message settings for <#{{channel}}> has been cleared**",
+  "name": "pegajoso",
+  "description": "Administrar mensajes pegajosos",
+  "notChannel": "<#{{channel}}> no es un canal o no puedo llegar a él (Comprueba mis permisos)",
+  "invalidColor": "`{{color}}` no es un color hexadecimal válido",
+  "set": "**Nuevo mensaje pegajoso en <#{{channel}}>:**\n_ _",
+  "cleared": "**Los ajustes de los mensajes pegajosos para <#{{channel}}> han sido despejados**",
   "setup": {
-    "name": "setup",
+    "name": "configuración",
     "content": {
-      "name": "content",
-      "description": "The content of the sticky message"
+      "name": "contenido",
+      "description": "El contenido del mensaje pegajoso"
     },
     "channel": {
-      "name": "channel",
-      "description": "The channel to set the sticky message in"
+      "name": "canal",
+      "description": "El canal en el que establecer el mensaje pegajoso"
     }
   },
   "reset": {
-    "name": "reset",
-    "description": "Remove the sticky message from a channel",
+    "name": "reiniciar",
+    "description": "Elimina el mensaje pegajoso de un canal",
     "channel": {
-      "name": "channel",
-      "description": "The channel to remove the sticky message from"
+      "name": "canal",
+      "description": "El canal en el que eliminar el mensaje pegajoso"
     }
   }
 }
