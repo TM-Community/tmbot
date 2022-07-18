@@ -1,0 +1,32 @@
+{
+  "name": "filtro",
+  "description": "Filtrar mensajes en un canal",
+  "notChannel": "<#{{channel}}> no es un canal o no lo puedo alcanzar (Comprueba mis permisos)",
+  "set": "**Nuevos ajustes del filtro para <#{{channel}}>:**\n> modo: `{{mode}}`\n> extensiones: `.{{extensions}}`",
+  "cleared": "**Ajustes del filtro para <#{{channel}}> despejados**",
+  "setup": {
+    "name": "establecer",
+    "channel": {
+      "name": "canal",
+      "description": "Canal para establecer filtros en"
+    },
+    "mode": {
+      "name": "modo",
+      "description": "Ya sea para excluir o para incluir",
+      "include": "Eliminar cualquier archivo que no tenga ninguna de las extensiones",
+      "exclude": "Eliminar cualquier archivo que tenga una de las extensiones"
+    },
+    "extensions": {
+      "name": "extensiones",
+      "description": "Extensiones para incluir/excluir (Mantener espacio en blanco entre cada extensión)"
+    }
+  },
+  "reset": {
+    "name": "reiniciar",
+    "description": "Reiniciar filtros para un canal",
+    "channel": {
+      "name": "canal",
+      "description": "Canal para reiniciar filtros en"
+    }
+  }
+}

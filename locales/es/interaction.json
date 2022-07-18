@@ -1,0 +1,6 @@
+{
+  "notInGuild": "Esta acción sólo puede ser ejecutada en un servidor.",
+  "notCommand": "Esto no es un comando.",
+  "missingPermissions": "{{user}} no tiene los permisos `{{permissions}}` para ejecutar esta acción.",
+  "cooldown": "Por favor espera `{{time}}s` antes de usar este comando otra vez."
+}

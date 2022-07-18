@@ -1,0 +1,8 @@
+{
+  "notReady": "La base de datos no está lista",
+  "timeout": "{{action}} se acabó el tiempo",
+  "idNotString": "El id debe ser una cadena de texto",
+  "updated": "{{{collection}}:{{id}}} modificado({{modifiedCount}}) alterado({{upsertedCount}})",
+  "deleted": "{{{collection}}:{{id}}} eliminado({{deletedCount}})",
+  "connected": "Conectado a MongoDB"
+}

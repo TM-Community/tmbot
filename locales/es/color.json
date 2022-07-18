@@ -1,0 +1,5 @@
+{
+  "name": "color",
+  "description": "Mostrar tu rol con color",
+  "invalidHexColor": "Esto no es un valor de color válido"
+}

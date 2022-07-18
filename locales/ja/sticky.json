@@ -1,0 +1,27 @@
+{
+  "name": "sticky",
+  "description": "Manage sticky messages",
+  "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
+  "invalidColor": "`{{color}}` is not a valid hex color",
+  "set": "**New sticky message in <#{{channel}}>:**\n_ _",
+  "cleared": "**Sticky message settings for <#{{channel}}> has been cleared**",
+  "setup": {
+    "name": "setup",
+    "content": {
+      "name": "content",
+      "description": "The content of the sticky message"
+    },
+    "channel": {
+      "name": "channel",
+      "description": "The channel to set the sticky message in"
+    }
+  },
+  "reset": {
+    "name": "reset",
+    "description": "Remove the sticky message from a channel",
+    "channel": {
+      "name": "channel",
+      "description": "The channel to remove the sticky message from"
+    }
+  }
+}

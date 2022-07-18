@@ -1,0 +1,27 @@
+{
+  "name": "pegajoso",
+  "description": "Administrar mensajes pegajosos",
+  "notChannel": "<#{{channel}}> no es un canal o no puedo llegar a él (Comprueba mis permisos)",
+  "invalidColor": "`{{color}}` no es un color hexadecimal válido",
+  "set": "**Nuevo mensaje pegajoso en <#{{channel}}>:**\n_ _",
+  "cleared": "**Los ajustes de los mensajes pegajosos para <#{{channel}}> han sido despejados**",
+  "setup": {
+    "name": "configuración",
+    "content": {
+      "name": "contenido",
+      "description": "El contenido del mensaje pegajoso"
+    },
+    "channel": {
+      "name": "canal",
+      "description": "El canal en el que establecer el mensaje pegajoso"
+    }
+  },
+  "reset": {
+    "name": "reiniciar",
+    "description": "Elimina el mensaje pegajoso de un canal",
+    "channel": {
+      "name": "canal",
+      "description": "El canal en el que eliminar el mensaje pegajoso"
+    }
+  }
+}

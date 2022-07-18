@@ -1,0 +1,5 @@
+{
+  "ready": "Sesión iniciada como {{user}}",
+  "slashCommands": "Comandos de barras cargados para `{{count}}` gremios",
+  "guildCreate": "Unido a gremio `{{guild}}`({{id}})"
+}
