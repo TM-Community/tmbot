@@ -85,7 +85,7 @@ module.exports = {
 
     switch (options.getSubcommand()) {
       case i18n.get("sticky.setup.name", data.guild.locale, {}, "setup"):
-        const content = options.getString("content", true);
+        const content = options.getString("content", true).replace(/\n|\\n|\/n/g, "\n");
         let color = options.getString("color") ?? "#ff0000";
 
         if (!color.startsWith("#")) color = `#${color}`;
