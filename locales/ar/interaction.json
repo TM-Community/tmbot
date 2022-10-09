@@ -1,5 +1,5 @@
 {
-  "notInGuild": "This action can only be performed in a guild.",
+  "notInGuild": "لا يمكن تنفيذ هذا الإجراء إلا في سيرفر.",
   "notCommand": "This is not a command.",
   "missingPermissions": "{{user}} is missing the permissions `{{permissions}}` to perform this action.",
   "cooldown": "Please wait `{{time}}s` before using this command again."
