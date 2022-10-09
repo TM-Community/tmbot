@@ -1,5 +1,5 @@
 {
-  "ready": "Logged in as {{user}}",
-  "slashCommands": "Loaded slash commands for `{{count}}` guilds",
-  "guildCreate": "Joined guild `{{guild}}`({{id}})"
+  "ready": "تسجيل دخول {{user}}",
+  "slashCommands": "أوامر سلاش في {{count}} سيرفر",
+  "guildCreate": "انظم إلى سيرفر {{guild}} {{id}}"
 }
