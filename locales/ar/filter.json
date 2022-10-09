@@ -1,6 +1,6 @@
 {
-  "name": "filter",
-  "description": "Filter messages in a channel",
+  "name": "فلتر",
+  "description": "تصفية المستخدمين في القناة",
   "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
   "set": "**New filter settings for <#{{channel}}>:**\n> mode: `{{mode}}`\n> extensions: `.{{extensions}}`",
   "cleared": "**Filter settings for <#{{channel}}> cleared**",
