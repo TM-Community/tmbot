@@ -9,20 +9,22 @@ class Logger {
    * @param {{ logsWebhookUrl: String, warnsWebhookUrl: String, errorsWebhookUrl: String, }} options
    */
   constructor(options) {
-    if (options?.webhookUrl) {
-
+    if (options?.logsWebhookUrl) {
       this.logsWebhook = new WebhookClient({ url: options?.logsWebhookUrl });
-      this.warnsWebhook = new WebhookClient({ url: options?.warnsWebhookUrl });
-      this.errorsWebhook = new WebhookClient({ url: options?.errorsWebhookUrl });
-
       this.log = (message) => {
         this.logsWebhook.send(`${getTime()} ${message}`);
         console.log(getTime(), message);
       };
+    }
+    if (options?.warnsWebhookUrl) {
+      this.warnsWebhook = new WebhookClient({ url: options?.warnsWebhookUrl });
       this.warn = (message) => {
         this.errorsWebhook.send(`${getTime()} ${message}`);
         console.warn(getTime(), message);
       };
+    }
+    if (options?.errorsWebhookUrl) {
+      this.errorsWebhook = new WebhookClient({ url: options.errorsWebhookUrl });
       this.error = (message) => {
         this.errorsWebhook.send(`${getTime()} ${message}`);
         console.error(getTime(), message);
