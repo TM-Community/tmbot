@@ -43,7 +43,8 @@ module.exports = {
 
     if (message.author.id !== client.user.id && data.channel.sticky) {
       const { content, color, lastId } = data.channel.sticky;
-
+      
+      const colorInt = parseInt(color.replace(/^#/, ""), 16)
       const cooldownKey = `sticky-${message.channelId}`;
 
       if (!cooldown.has(cooldownKey))
@@ -51,7 +52,7 @@ module.exports = {
           if (lastId) message.channel.messages.delete(lastId);
 
           const newMessage = await message.channel.send({
-            embeds: [{ description: content, color }],
+            embeds: [{ description: content, color: colorInt }],
           });
 
           data.channel.sticky.lastId = newMessage.id;
