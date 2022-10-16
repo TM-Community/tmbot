@@ -9,7 +9,7 @@ module.exports = {
    * @param {Message} message
    */
   async execute(client, message) {
-    const admin = message.member.permissions.has("MANAGE_GUILD");
+    const admin = message.member?.permissions.has("ManageGuild");
 
     /**
      * @type {{ guild: Guild, channel: Channel, user: User }}
