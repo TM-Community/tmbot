@@ -1,8 +1,10 @@
 const {
-  CommandInteraction,
+  ChatInputCommandInteraction,
   Client,
-  PermissionString,
+  PermissionResolvable,
   ApplicationCommandOptionData,
+  ApplicationCommandOptionType,
+  ChannelType,
 } = require("discord.js");
 const { User, Channel, Guild, db } = require("../db");
 const i18n = require("../i18n");
@@ -10,9 +12,9 @@ const i18n = require("../i18n");
 module.exports = {
   name: "filter",
   /**
-   * @type {PermissionString[]}
+   * @type {PermissionResolvable[]}
    */
-  permissions: ["MANAGE_MESSAGES"],
+  permissions: ["ManageMessages"],
   /**
    * @type {ApplicationCommandOptionData[]}
    */
@@ -20,12 +22,12 @@ module.exports = {
     {
       name: "setup",
       description: "Setup filters for a channel",
-      type: "SUB_COMMAND",
+      type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "mode",
           description: "Whether to exclude or include.",
-          type: "STRING",
+          type: ApplicationCommandOptionType.String,
           choices: [
             {
               name: "Delete any file has none of the extensions",
@@ -42,38 +44,38 @@ module.exports = {
           name: "extensions",
           description:
             "Extensions to include/exclude (Keep whitespace between each extension)",
-          type: "STRING",
+          type: ApplicationCommandOptionType.String,
           required: true,
         },
         {
           name: "channel",
           description: "Channel to set filters in",
-          type: "CHANNEL",
-          channelTypes: ["GUILD_TEXT", "GUILD_NEWS"],
+          type: ApplicationCommandOptionType.Channel,
+          channelTypes: [ChannelType.GuildText, ChannelType.GuildAnnouncement],
         },
       ],
     },
     {
       name: "reset",
       description: "Reset filters for a channel",
-      type: "SUB_COMMAND",
+      type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "channel",
           description: "Channel to reset filters in (default is current)",
-          type: "CHANNEL",
+          type: ApplicationCommandOptionType.Channel,
         },
       ],
     },
   ],
   /**
-   * @param {{ receivedTime: Number, interaction: CommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
+   * @param {{ receivedTime: Number, interaction: ChatInputCommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
    */
   async execute({ interaction, data, locale }) {
     const { options } = interaction;
     const channel = options.getChannel("channel") ?? interaction.channel;
 
-    if (!channel || !["GUILD_TEXT", "GUILD_NEWS"].includes(channel.type))
+    if (channel?.type !== ChannelType.GuildText && channel?.type !== ChannelType.GuildAnnouncement)
       return interaction.reply({
         content: i18n.get("filter.notChannel", locale, {
           channel: channel.id,
