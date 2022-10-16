@@ -1,4 +1,4 @@
-const { Client, Message, TextChannel } = require("discord.js");
+const { Client, Message } = require("discord.js");
 const { db, Guild, Channel, User } = require("../db");
 const cooldown = require("../cooldown");
 
