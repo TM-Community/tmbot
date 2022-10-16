@@ -20,7 +20,7 @@ const { join } = require("path");
 const { loadFiles } = require("./fs");
 
 const client = new Client({
-  intents: ["GUILDS", "GUILD_MESSAGES"],
+  intents: ["Guilds", "GuildMessages", "MessageContent"],
 });
 
 loadFiles(join(__dirname, "events"), "js", { oneCollection: true }).each(

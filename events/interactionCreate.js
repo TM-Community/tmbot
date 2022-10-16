@@ -12,10 +12,7 @@ module.exports = {
   async execute(client, interaction) {
     const receivedTime = Date.now();
     if (!interaction.inCachedGuild())
-      return interaction.reply({
-        content: i18n.get("interaction.notInGuild", locale),
-        ephemeral: true,
-      });
+      return interaction.channel?.send(i18n.get("interaction.notInGuild", locale));
 
     /**
      * @type {{ guild: Guild, channel: Channel, user: User }}
@@ -34,7 +31,7 @@ module.exports = {
 
     const locale = data.user.locale || data.channel.locale || data.guild.locale;
 
-    if (interaction.isCommand()) {
+    if (interaction.isChatInputCommand()) {
       const command = client.commands.get(interaction.commandName);
       if (!command)
         return interaction.reply({

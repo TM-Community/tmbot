@@ -1,4 +1,4 @@
-const { CommandInteraction, Client } = require("discord.js");
+const { ChatInputCommandInteraction, Client } = require("discord.js");
 const ms = require("ms");
 const { User, Channel, Guild } = require("../db");
 const i18n = require("../i18n");
@@ -6,7 +6,7 @@ const i18n = require("../i18n");
 module.exports = {
   name: "ping",
   /**
-   * @param {{ receivedTime: Number, interaction: CommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
+   * @param {{ receivedTime: Number, interaction: ChatInputCommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
    */
   async execute({ receivedTime, interaction, client, locale }) {
     const responseTime = Date.now();
