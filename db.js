@@ -3,8 +3,9 @@ const { error, log } = require("./logger");
 const { defaultLocale } = require("./i18n");
 const { Collection } = require("discord.js");
 const i18n = require("./i18n");
+const EventEmitter = require('events');
 
-class DB {
+class DB extends EventEmitter {
   /**
    * Check if the document exists in the collection
    * @param {String} collection - The collection to check in
@@ -160,34 +161,36 @@ class DB {
 
     this.client = new MongoClient(URI, { ignoreUndefined: true });
 
-    this.client
-      .connect()
-      .then(async () => {
-        log(i18n.get("db.connected", i18n.defaultLocale));
-        this.db = this.client.db();
-        this.ready = true;
-
-        this.changeStream = this.db.watch([
-          {
-            $match: {
-              operationType: { $in: ["delete", "insert", "replace", "update"] },
-            },
+    this.once("ready", async () => {
+      this.changeStream = this.db.watch([
+        {
+          $match: {
+            operationType: { $in: ["delete", "insert", "replace", "update"] },
           },
-        ]);
-        this.changeStream.on("change", async (change) => {
-          if (change.operationType === "delete")
-            this.cache[change.ns.coll]?.delete(change.documentKey._id);
-          else if (change.operationType === "update")
-            this.cache[change.ns.coll]?.set(
-              change.documentKey._id,
-              await this.get(change.ns.coll, change.documentKey._id, true)
-            );
-          else
-            this.cache[change.ns.coll]?.set(
-              change.documentKey._id,
-              change.fullDocument
-            );
-        });
+        },
+      ]);
+      this.changeStream.on("change", async (change) => {
+        if (change.operationType === "delete")
+          this.cache[change.ns.coll]?.delete(change.documentKey._id);
+        else if (change.operationType === "update")
+          this.cache[change.ns.coll]?.set(
+            change.documentKey._id,
+            await this.get(change.ns.coll, change.documentKey._id, true)
+          );
+        else
+          this.cache[change.ns.coll]?.set(
+            change.documentKey._id,
+            change.fullDocument
+          );
+      });
+    })
+
+    this.client.connect()
+      .then(() => {
+        log(i18n.get("db.connected", i18n.defaultLocale));
+        this.ready = true
+        this.db = this.client.db()
+        this.emit("ready")
       })
       .catch(error);
   }
