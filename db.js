@@ -149,6 +149,8 @@ class DB extends EventEmitter {
    * @param {Number} timeout - The timeout of functions
    */
   constructor(URI, options) {
+    super()
+    
     this.URI = URI;
     this.ready = false;
     this.timeout = options?.timeout || 5000;
