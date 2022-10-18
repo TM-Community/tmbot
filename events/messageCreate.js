@@ -19,7 +19,7 @@ const activityTypes = {
 function executeAdminCommand(client, message) {
   const args = message.content.replace(client.prefix, "").split(/\s/)
   const p = process.env.PREFIX ?? "="
-  const commandName = args.shift().toLowerCase()
+  const commandName = args.shift()?.toLowerCase()
   const catchFunc = (r) => message.reply(`**Error:**\n> ${r}`)
   switch (commandName) {
     case "username":
@@ -47,11 +47,12 @@ function executeAdminCommand(client, message) {
       break;
     case "activity":
       const type = args[0]?.toLowerCase()
-      const name = args.slice(1)?.join(" ")
-      if (name && Object.keys(activityTypes).includes(type)) {
-        client.user.setActivity({ name, type: activityTypes[type] })
+      const name = args.slice(type !== "streaming" ? 1 : 2).join(" ")
+      const url = type === "streaming" ? args[1] : undefined
+      if (args[1] && Object.keys(activityTypes).includes(type)) {
+        client.user.setActivity({ name, url, type: activityTypes[type] })
         message.reply("Activity updated!")
-      } else message.reply(`**Usage:**\n> ${p}activity (${Object.keys(activityTypes).join("|")}) <name>`)
+      } else message.reply(`**Usage:**\n> ${p}activity (${Object.keys(activityTypes).join("|")}) <name|link>`)
       break;
     default:
       message.reply(`**Admin cmds:**\n> ${p}username, ${p}avatar, ${p}status, ${p}activity`)
