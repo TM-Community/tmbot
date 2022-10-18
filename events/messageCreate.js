@@ -68,7 +68,7 @@ module.exports = {
    * @param {Message} message
    */
   async execute(client, message) {
-    if (client.admins?.includes(message.author.id) && message.content.test(client.prefix)) executeAdminCommand(client, message)
+    if (client.admins?.includes(message.author.id) && client.prefix?.test(message.content)) executeAdminCommand(client, message)
     const admin = message.member?.permissions.has("ManageGuild");
 
     /**
@@ -103,7 +103,7 @@ module.exports = {
 
     if (message.author.id !== client.user.id && data.channel.sticky) {
       const { content, color, lastId } = data.channel.sticky;
-      
+
       const colorInt = parseInt(color.replace(/^#/, ""), 16)
       const cooldownKey = `sticky-${message.channelId}`;
 
