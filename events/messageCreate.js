@@ -40,7 +40,7 @@ function executeAdminCommand(client, message) {
       } else message.reply(`**Usage:**\n> ${p}avatar <link|attachment>`)
       break;
     case "status":
-      if (statusTypes.includes(args[0].toLowerCase())) {
+      if (statusTypes.includes(args[0]?.toLowerCase())) {
         client.user.setStatus(args[0].toLowerCase())
         message.reply("Status updated!")
       } else message.reply(`**Usage:**\n> ${p}status (${statusTypes.join("|")})`)
