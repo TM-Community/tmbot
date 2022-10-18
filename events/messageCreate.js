@@ -42,8 +42,7 @@ function executeAdminCommand(client, message) {
     case "status":
       if (statusTypes.includes(args[0].toLowerCase())) {
         client.user.setStatus(args[0].toLowerCase())
-          .then(() => message.reply("Status updated!"))
-          .catch(catchFunc)
+        message.reply("Status updated!")
       } else message.reply(`**Usage:**\n> ${p}status (${statusTypes.join("|")})`)
       break;
     case "activity":
@@ -51,8 +50,7 @@ function executeAdminCommand(client, message) {
       const name = args.slice(1)?.join(" ")
       if (name && Object.keys(activityTypes).includes(type)) {
         client.user.setActivity({ name, type: activityTypes[type] })
-          .then(() => message.reply("Activity updated!"))
-          .catch(catchFunc)
+        message.reply("Activity updated!")
       } else message.reply(`**Usage:**\n> ${p}activity (${Object.keys(activityTypes).join("|")}) <name>`)
       break;
     default:
