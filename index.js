@@ -23,6 +23,8 @@ const client = new Client({
   intents: ["Guilds", "GuildMessages", "MessageContent"],
 });
 
+client.admins = process.env.ADMINS?.split(/,+/)
+
 loadFiles(join(__dirname, "events"), "js", { oneCollection: true }).each(
   (event) => {
     const execute = (...args) => event.execute(client, ...args);
