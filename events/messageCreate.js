@@ -68,7 +68,7 @@ module.exports = {
    * @param {Message} message
    */
   async execute(client, message) {
-    if (client.admins?.includes(message.user.id) && message.content.test(client.prefix)) executeAdminCommand(client, message)
+    if (client.admins?.includes(message.author.id) && message.content.test(client.prefix)) executeAdminCommand(client, message)
     const admin = message.member?.permissions.has("ManageGuild");
 
     /**
