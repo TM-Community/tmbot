@@ -15,6 +15,8 @@ module.exports = {
       i18n.get("client.ready", i18n.defaultLocale, { user: client.user.tag })
     );
 
+    client.prefix = RegExp(`^((<@!?)?${client.user.id}>?|${process.env.PREFIX ?? "="})\s*`)
+
     if (db.ready) loadGuildsSlashCommands(client)
     else db.once("ready", () => loadGuildsSlashCommands(client))
   },

@@ -24,7 +24,6 @@ const client = new Client({
 });
 
 client.admins = process.env.ADMINS?.split(/,+/)
-client.prefix = RegExp(`^((<@!?)?${client.user.id}>?|${process.env.PREFIX ?? "="})\s*`)
 
 loadFiles(join(__dirname, "events"), "js", { oneCollection: true }).each(
   (event) => {
