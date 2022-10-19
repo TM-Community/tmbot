@@ -91,7 +91,10 @@ module.exports = {
     if (!admin && !message.author.bot && data.channel.filter) {
       const { max, exclude, extensions } = data.channel.filter;
 
-      if (max && message.attachments.size > max) return message.delete();
+      if (max && message.attachments.size > max) {
+        await message.delete()
+        return message.author.send(i18n.get("filter.deleted.max", locale, { max, channel: message.channel.id }))
+      };
 
       const fileExtensions = message.attachments.map((attachment) =>
         attachment.name.split(".").pop()
@@ -100,7 +103,13 @@ module.exports = {
         fileExtensions.includes(extension)
       );
 
-      if ((exclude && match) || (!exclude && !match)) return message.delete();
+      if ((exclude && match)) {
+        await message.delete()
+        return message.author.send(i18n.get("filter.deleted.exclude", locale, { extensions: extensions.join("` `"), channel: message.channel.id }))
+      } else if ((!exclude && !match)) {
+        await message.delete()
+        return message.author.send(i18n.get("filter.deleted.include", locale, { extensions: extensions.join("` `"), channel: message.channel.id }))
+      };
     }
 
     if (message.author.id !== client.user.id && data.channel.sticky) {
