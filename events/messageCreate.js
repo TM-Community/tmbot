@@ -1,6 +1,7 @@
 const { Client, Message, ActivityType } = require("discord.js");
 const { db, Guild, Channel, User } = require("../db");
 const cooldown = require("../cooldown");
+const i18n = require("../i18n");
 
 const statusTypes = ["online", "dnd", "idle", "invisible"]
 const activityTypes = {
@@ -84,6 +85,8 @@ module.exports = {
         ? await db.get("users", message.author.id)
         : new User(message.author.id),
     };
+
+    const locale = data.user.locale || data.channel.locale || data.guild.locale;
 
     if (!admin && !message.author.bot && data.channel.filter) {
       const { max, exclude, extensions } = data.channel.filter;
