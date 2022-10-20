@@ -1,5 +1,5 @@
 {
   "name": "color",
-  "description": "Show your role with color",
+  "description": "Show your username with a specific color",
   "invalidHexColor": "This is not a valid hex color"
 }
