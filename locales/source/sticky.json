@@ -4,7 +4,7 @@
   "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
   "invalidColor": "`{{color}}` is not a valid hex color",
   "set": "**New sticky message in <#{{channel}}>:**\n_ _",
-  "cleared": "**Sticky message settings for <#{{channel}}> has been cleared**",
+  "cleared": "**Sticky message settings for <#{{channel}}> have been cleared**",
   "setup": {
     "name": "setup",
     "content": {
