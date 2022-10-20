@@ -1,7 +1,7 @@
 {
   "notReady": "Database is not ready",
   "timeout": "{{action}} timed out",
-  "idNotString": "id must be a string",
+  "idNotString": "The id must be a string",
   "updated": "{{{collection}}:{{id}}} modified({{modifiedCount}}) upserted({{upsertedCount}})",
   "deleted": "{{{collection}}:{{id}}} deleted({{deletedCount}})",
   "connected": "Connected to MongoDB"
