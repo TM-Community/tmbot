@@ -4,7 +4,7 @@
   "notChannel": "<#{{channel}}> no es un canal o no puedo llegar a él (Comprueba mis permisos)",
   "invalidColor": "`{{color}}` no es un color hexadecimal válido",
   "set": "**Nuevo mensaje pegajoso en <#{{channel}}>:**\n_ _",
-  "cleared": "**Los ajustes de los mensajes pegajosos para <#{{channel}}> han sido despejados**",
+  "cleared": "**Sticky message settings for <#{{channel}}> have been cleared**",
   "setup": {
     "name": "configuración",
     "content": {
@@ -18,7 +18,7 @@
   },
   "reset": {
     "name": "reiniciar",
-    "description": "Elimina el mensaje pegajoso de un canal",
+    "description": "Remove sticky message from a channel",
     "channel": {
       "name": "canal",
       "description": "El canal en el que eliminar el mensaje pegajoso"
