@@ -8,11 +8,11 @@
     "name": "establecer",
     "channel": {
       "name": "canal",
-      "description": "Canal para establecer filtros en"
+      "description": "Channel to set filters on"
     },
     "mode": {
       "name": "modo",
-      "description": "Ya sea para excluir o para incluir",
+      "description": "Either to exclude or include",
       "include": "Eliminar cualquier archivo que no tenga ninguna de las extensiones",
       "exclude": "Eliminar cualquier archivo que tenga una de las extensiones"
     },
