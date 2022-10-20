@@ -1,5 +1,0 @@
-{
-  "ready": "Logged in as {{user}}",
-  "slashCommands": "Loaded slash commands for `{{count}}` guilds",
-  "guildCreate": "Joined guild `{{guild}}`({{id}})"
-}
