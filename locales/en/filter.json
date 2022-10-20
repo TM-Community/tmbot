@@ -8,11 +8,11 @@
     "name": "set",
     "channel": {
       "name": "channel",
-      "description": "Channel to set filters in"
+      "description": "Channel to set filters on"
     },
     "mode": {
       "name": "mode",
-      "description": "Whether to exclude or include",
+      "description": "Either to exclude or include",
       "include": "Delete any file has none of the extensions",
       "exclude": "Delete any file has one of the extensions"
     },
