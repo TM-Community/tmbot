@@ -31,7 +31,7 @@
   },
   "deleted": {
     "max": "You can't' attach more than `{{max}}` file/s per message in <#{{channel}}>",
-    "exclude": "The file format/s `{{extensions}}` isn't supported in <#{{channel}}>",
+    "exclude": "El formato del archivo `{{extensions}}` no está soportado en <#{{channel}}>",
     "include": "You can only attach files that has one of the `{{extensions}}` format/s in <#{{channel}}>"
   }
 }
