@@ -8,7 +8,7 @@
     "name": "set",
     "channel": {
       "name": "channel",
-      "description": "Channel to set filters on"
+      "description": "Channel to set filters in"
     },
     "mode": {
       "name": "mode",
@@ -30,8 +30,8 @@
     }
   },
   "deleted": {
-    "max": "You can't' attach more than `{{max}}` file/s per message in <#{{channel}}>",
-    "exclude": "The file format/s `{{extensions}}` isn't supported in <#{{channel}}>",
-    "include": "You can only attach files that has one of the `{{extensions}}` format/s in <#{{channel}}>"
+    "max": "You can't' attach more than `{{max}}` file(s) per message in <#{{channel}}>",
+    "exclude": "The file format(s) `{{extensions}}` isn't supported in <#{{channel}}>",
+    "include": "You can only attach files that has one of the `{{extensions}}` format(s) in <#{{channel}}>"
   }
 }
