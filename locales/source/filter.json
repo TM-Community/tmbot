@@ -8,7 +8,7 @@
     "name": "set",
     "channel": {
       "name": "channel",
-      "description": "Channel to set filters on"
+      "description": "Channel to set filters in"
     },
     "mode": {
       "name": "mode",
