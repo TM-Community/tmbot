@@ -18,7 +18,7 @@
   },
   "reset": {
     "name": "reset",
-    "description": "Remove the sticky message from a channel",
+    "description": "Remove sticky message from a channel",
     "channel": {
       "name": "channel",
       "description": "The channel to remove the sticky message from"
