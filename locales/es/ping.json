@@ -1,5 +1,4 @@
 {
-  "name": "ping",
   "description": "Test de latencia",
   "response": "**Latencia de viaje de ida y vuelta:**\n> ``{{ping}}ms``\n**Latencia del enchufe web:**\n> `{{ws}}ms`\n**Tiempo de actividad:**\n> `{{uptime}}`"
 }
