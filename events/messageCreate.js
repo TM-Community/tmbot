@@ -91,7 +91,7 @@ module.exports = {
     if (!admin && !message.author.bot && data.channel.filter) {
       const { max, exclude, extensions } = data.channel.filter;
 
-      if (max && message.attachments.size > max) {
+      if (message.attachments.size > max < 0) {
         await message.delete()
         return message.author.send(i18n.get("filter.deleted.max", locale, { max, channel: message.channel.id }))
       };
