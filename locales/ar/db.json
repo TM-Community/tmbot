@@ -1,7 +1,7 @@
 {
   "notReady": "قاعدة البيانات غير جاهزة",
   "timeout": "انتهى وقت الـ({{action}})",
-  "idNotString": "The id must be a string",
+  "idNotString": "الـ(Id) يجب أن يكون (string)",
   "updated": "{{{collection}}:{{id}}} عُدّل({{modifiedCount}}) اُدخل({{upsertedCount}})",
   "deleted": "{{{collection}}:{{id}}} حُذف({{deletedCount}})",
   "connected": "تم الاتصال بـ(MongoDB)"
