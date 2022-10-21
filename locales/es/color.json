@@ -1,5 +1,5 @@
 {
   "name": "color",
-  "description": "Show your username with a specific color",
+  "description": "Muestra tu nombre de usuario con un color específico",
   "invalidHexColor": "Esto no es un valor de color hexadecimal válido"
 }
