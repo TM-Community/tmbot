@@ -48,6 +48,13 @@ module.exports = {
           required: true,
         },
         {
+          name: "max",
+          description: "Maximum number of attachments per message",
+          type: ApplicationCommandOptionType.Integer,
+          minValue: 1,
+          maxValue: 10
+        },
+        {
           name: "channel",
           description: "Channel to set filters in",
           type: ApplicationCommandOptionType.Channel,
@@ -87,6 +94,7 @@ module.exports = {
       case i18n.get("filter.setup.name", data.guild.locale):
         const exclude = options.getString("mode", true) === "exclude";
 
+        let max = options.getInteger("max") ?? 10
         let extensions = options.getString("extensions", true).split(/ /g);
 
         await interaction.deferReply();
@@ -95,7 +103,7 @@ module.exports = {
           extension.startsWith(".") ? extension.slice(1) : extension
         );
 
-        data.channel.filter = { exclude, extensions };
+        data.channel.filter = { exclude, max, extensions };
 
         await db.set("channels", data.channel);
 
@@ -103,6 +111,7 @@ module.exports = {
           content: i18n.get("filter.set", locale, {
             channel: channel.id,
             mode: exclude ? "exclude" : "include",
+            max,
             extensions: extensions.join("`, `."),
           }),
         });
