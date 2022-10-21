@@ -2,7 +2,7 @@
   "name": "filter",
   "description": "Filter messages in a channel",
   "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
-  "set": "**New filter settings for <#{{channel}}>:**\n> mode: `{{mode}}`\n> extensions: `.{{extensions}}`",
+  "set": "**New filter settings for <#{{channel}}>:**\n> mode: `{{mode}}`\n> max attachments: `{{max}}`\n> extensions: `.{{extensions}}`",
   "cleared": "**Filter settings for <#{{channel}}> cleared**",
   "setup": {
     "name": "set",
@@ -19,6 +19,10 @@
     "extensions": {
       "name": "extensions",
       "description": "Extensions to include/exclude (Keep whitespace between each extension)"
+    },
+    "max": {
+      "name": "max",
+      "description": "Maximum number of attachments per message"
     }
   },
   "reset": {
