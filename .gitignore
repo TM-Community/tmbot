@@ -1,6 +1,6 @@
 # locales (https://crowdin.com/project/tmbot)
 locales/*
-!locales/source
+!locales/en
 
 # Logs
 logs
