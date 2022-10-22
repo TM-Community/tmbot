@@ -7,6 +7,7 @@ const {
 } = require("discord.js");
 const { User, Channel, Guild, db } = require("../db");
 const i18n = require("../i18n");
+const { loadSlashCommands } = require("../loadSlashCommands");
 
 module.exports = {
   name: "language",
