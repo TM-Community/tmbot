@@ -1,32 +1,41 @@
 {
-  "name": "filter",
-  "description": "Filter messages in a channel",
-  "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
-  "set": "**New filter settings for <#{{channel}}>:**\n> mode: `{{mode}}`\n> extensions: `.{{extensions}}`",
-  "cleared": "**Filter settings for <#{{channel}}> cleared**",
+  "name": "فلتر",
+  "description": "تصفية الرسائل في القناة",
+  "notChannel": "<{{channel}}#> ليست قناة أو لا يمكنني الوصول إليها (تحقق من صلاحياتي)",
+  "set": "**إعدادات التصفية الجديدة لـ <#{{channel}}>:**\n> الوضع: `{{mode}}`\n>الحد الاقصى من المرفقات `{{max}}`\n> الملحقات: `{{extensions}}`",
+  "cleared": "** تم مسح إعدادات التصفية لـ <# {{channel}}> **",
   "setup": {
-    "name": "set",
+    "name": "تعيين",
     "channel": {
-      "name": "channel",
-      "description": "Channel to set filters in"
+      "name": "قناة",
+      "description": "قناة لتعيين عوامل التصفية فيها"
     },
     "mode": {
-      "name": "mode",
-      "description": "Whether to exclude or include",
-      "include": "Delete any file has none of the extensions",
-      "exclude": "Delete any file has one of the extensions"
+      "name": "الوضع",
+      "description": "إما للاستبعاد أو التضمين",
+      "include": "حذف أي ملف ليس له أي من الملحقات",
+      "exclude": "حذف أي ملف لديه واحدة من الملحقات"
     },
     "extensions": {
-      "name": "extensions",
-      "description": "Extensions to include/exclude (Keep whitespace between each extension)"
+      "name": "الملحقات",
+      "description": "الإضافات المراد تضمينها / استبعادها (احتفظ بمسافة بين كل ملحق)"
+    },
+    "max": {
+      "name": "الحد الاقصى",
+      "description": "الحد الاقصى من المرفقات في الرساله "
     }
   },
   "reset": {
-    "name": "reset",
-    "description": "Reset filters for a channel",
+    "name": "إعادة ضبط",
+    "description": "اعادة ضبط الفلتر للفناة",
     "channel": {
-      "name": "channel",
-      "description": "Channel to reset filters in"
+      "name": "قناة",
+      "description": "قناة لتعيين عوامل التصفية فيها"
     }
+  },
+  "deleted": {
+    "max": "لا يمكنك إرفاق أكثر من `{{max}}` ملف (ملفات) لكل رسالة في <#{{channel}}>",
+    "exclude": "تنسيق الملف `{{extensions}}` غير مدعوم في <#{{channel}}>",
+    "include": "يمكنك فقط إرفاق الملفات التي تحتوي على احد الصيغ `{{extensions}}` في <#{{channel}}>"
   }
 }
