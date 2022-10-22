@@ -1,27 +1,27 @@
 {
-  "name": "sticky",
-  "description": "Manage sticky messages",
-  "notChannel": "<#{{channel}}> is not a channel or i can't reach it (Check my permissions)",
-  "invalidColor": "`{{color}}` is not a valid hex color",
-  "set": "**New sticky message in <#{{channel}}>:**\n_ _",
-  "cleared": "**Sticky message settings for <#{{channel}}> has been cleared**",
+  "name": "مثبت",
+  "description": "إدارة الرسائل الثابتة",
+  "notChannel": "<{{channel}}#> ليست قناة أو لا يمكنني الوصول إليها (تحقق من صلاحياتي)",
+  "invalidColor": "`{{color}}` ليس لون سداسي صالح",
+  "set": "**الرسالة المثبتة الجديدة في <#{Channel}>:**\n{stick}",
+  "cleared": "** تم مسح إعدادات الرسائل الثابتة لـ <٪#{{channel}}> **",
   "setup": {
-    "name": "setup",
+    "name": "إعداد",
     "content": {
-      "name": "content",
-      "description": "The content of the sticky message"
+      "name": "المحتوى",
+      "description": "محتوى الرسالة الثابتة"
     },
     "channel": {
-      "name": "channel",
-      "description": "The channel to set the sticky message in"
+      "name": "قناة",
+      "description": "القناة التي سيتم فيها ضبط الرسالة الثابتة"
     }
   },
   "reset": {
-    "name": "reset",
-    "description": "Remove the sticky message from a channel",
+    "name": "إعادة ضبط",
+    "description": "قم بإزالة رسالة ثابتة من قناة معينة",
     "channel": {
-      "name": "channel",
-      "description": "The channel to remove the sticky message from"
+      "name": "القناة",
+      "description": "القناة التي يتم فيها إزالة الرسالة الثابتة"
     }
   }
 }
