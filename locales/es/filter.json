@@ -2,7 +2,7 @@
   "name": "filtro",
   "description": "Filtrar mensajes en un canal",
   "notChannel": "<#{{channel}}> no es un canal o no lo puedo alcanzar (Comprueba mis permisos)",
-  "set": "**Nuevos ajustes del filtro para <#{{channel}}>:**\n> modo: `{{mode}}`\n> extensiones: `.{{extensions}}`",
+  "set": "**Nuevos ajustes del filtro para <#{{channel}}>:**\n> modo: `{{mode}}`\n> archivos adjuntos máximos: `{{max}}`\n> extensiones: `.{{extensions}}`",
   "cleared": "**Ajustes del filtro para <#{{channel}}> despejados**",
   "setup": {
     "name": "establecer",
@@ -19,6 +19,10 @@
     "extensions": {
       "name": "extensiones",
       "description": "Extensiones para incluir/excluir (Mantener espacio en blanco entre cada extensión)"
+    },
+    "max": {
+      "name": "máximo",
+      "description": "Número máximo de archivos adjuntos por mensaje"
     }
   },
   "reset": {
