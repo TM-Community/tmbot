@@ -1,5 +1,5 @@
 {
-  "name": "color",
-  "description": "Show your role with color",
-  "invalidHexColor": "This is not a valid hex color"
+  "name": "اللَّوْنُ",
+  "description": "أظهر اسم المستخدم الخاص بك بلون محدد",
+  "invalidHexColor": "هذا ليس لون سداسي صالح"
 }
