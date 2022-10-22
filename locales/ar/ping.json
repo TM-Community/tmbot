@@ -1,5 +1,5 @@
 {
-  "name": "ping",
-  "description": "Latency test",
-  "response": "**Roundtrip latency:**\n> ``{{ping}}ms``\n**WebSocket latency:**\n> `{{ws}}ms`\n**Uptime:**\n> `{{uptime}}`"
+  "name": "بينغ",
+  "description": "اختبار الإستجابة",
+  "response": "** ذهابا وإيابا: **\n > `` {{ping}} مللي ثانية '' \n** زمن انتقال المكونات على الويب: **\n > `{{ws}} مللي ثانية` \n**وقت النشاط:**\n > `{{uptime}}`"
 }
