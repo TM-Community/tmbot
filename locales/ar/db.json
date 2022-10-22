@@ -1,8 +1,8 @@
 {
-  "notReady": "Database is not ready",
-  "timeout": "{{action}} timed out",
-  "idNotString": "id must be a string",
-  "updated": "{{{collection}}:{{id}}} modified({{modifiedCount}}) upserted({{upsertedCount}})",
-  "deleted": "{{{collection}}:{{id}}} deleted({{deletedCount}})",
-  "connected": "Connected to MongoDB"
+  "notReady": "قاعدة البيانات غير جاهزة",
+  "timeout": "انتهى وقت الـ({{action}})",
+  "idNotString": "يجب ان يكون الـID متسلسل",
+  "updated": "{{{collection}}:{{id}}} عُدّل({{modifiedCount}}) اُدخل({{upsertedCount}})",
+  "deleted": "{{{collection}}:{{id}}} حُذف({{deletedCount}})",
+  "connected": "تم الاتصال بـ(MongoDB)"
 }
