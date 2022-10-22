@@ -31,7 +31,7 @@ module.exports = {
   /**
    * @param {{ receivedTime: Number, interaction: ChatInputCommandInteraction, client: Client, data: { guild: Guild, channel: Channel, user: User }, locale: String}}
    */
-  async execute({ interaction, data }) {
+  async execute({ interaction, client, data }) {
     const newLocale = interaction.options.getString("locale", true);
     const channel = interaction.options.getChannel("channel");
 
@@ -48,5 +48,7 @@ module.exports = {
         locale: newLocale
       })
     });
+
+    loadSlashCommands(client, interaction.guild);
   }
 };
