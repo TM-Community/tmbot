@@ -1,0 +1,22 @@
+{
+  "name": "language",
+  "description": "Change guild language or add language override to a channel",
+  "locale": {
+    "locale": "locale",
+    "description": "The language to change to",
+    "ar": "Arabic",
+    "en": "English",
+    "de": "German",
+    "ru": "Russian",
+    "es": "Spanish",
+    "tr": "Turkish"
+  },
+  "channel": {
+    "name": "channel",
+    "description": "Optional channel to apply language override in"
+  },
+  "set": {
+    "channel": "The language of <#{{channel}}> has been changed to `{{locale}}`",
+    "guild": "The language of the guild has been changed to `{{locale}}`"
+  }
+}
