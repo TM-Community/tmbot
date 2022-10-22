@@ -44,7 +44,7 @@ module.exports = {
 
     interaction.editReply({
       content: i18n.get(`language.set.${mode}`, newLocale, {
-        channel: channel.id,
+        channel: channel?.id,
         locale: newLocale
       })
     });
