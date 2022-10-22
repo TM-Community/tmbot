@@ -1,6 +1,6 @@
 {
-  "notInGuild": "This action can only be performed in a guild.",
-  "notCommand": "This is not a command.",
-  "missingPermissions": "{{user}} is missing the permissions `{{permissions}}` to perform this action.",
-  "cooldown": "Please wait `{{time}}s` before using this command again."
+  "notInGuild": "لا يمكن تنفيذ هذا الإجراء إلا في سيرفر.",
+  "notCommand": "هذا ليس أمر.",
+  "missingPermissions": "{{user}} يفتقد الصلاحيات اللازمة\n{{permissions}} لتنفيذ هذا الإجراء.",
+  "cooldown": "يرجى الإنتظار `s{{time}}` قبل استخدام هذا الأمر مرة أخرى."
 }
