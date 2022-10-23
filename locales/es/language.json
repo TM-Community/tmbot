@@ -1,0 +1,22 @@
+{
+  "name": "idioma",
+  "description": "Cambia el idioma del gremio o añade la anulación de idioma a un canal",
+  "locale": {
+    "locale": "local",
+    "description": "El idioma al que cambiar",
+    "ar": "Árabe",
+    "en": "Inglés",
+    "de": "Alemán",
+    "ru": "Ruso",
+    "es": "Español",
+    "tr": "Turco"
+  },
+  "channel": {
+    "name": "canal",
+    "description": "Canal opcional para aplicar la anulación de idioma en"
+  },
+  "set": {
+    "channel": "El idioma de <#{{channel}}> ha sido cambiado a `{{locale}}`",
+    "guild": "El idioma del gremio ha sido cambiado a `{{locale}}`"
+  }
+}
