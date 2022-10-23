@@ -96,7 +96,7 @@ module.exports = {
         const warnContent = `<@!${message.author.id}>\n` + i18n.get("filter.deleted.max", locale, { max, channel: message.channel.id })
         return message.author.send(warnContent).catch(async () => {
           const warnMessage = await message.channel.send(warnContent)
-          setTimeout(() => warnMessage.delete(), 5000);
+          setTimeout(() => warnMessage.delete(), 10000);
         })
       };
 
@@ -111,7 +111,7 @@ module.exports = {
         const warnContent = `<@!${message.author.id}>\n` + i18n.get(`filter.deleted.${mode}`, locale, { extensions: extensions.join("` `"), channel: message.channel.id })
         return message.author.send(warnContent).catch(async () => {
           const warnMessage = await message.channel.send(warnContent)
-          setTimeout(() => warnMessage.delete(), 5000);
+          setTimeout(() => warnMessage.delete(), 10000);
         })
       }
     }
