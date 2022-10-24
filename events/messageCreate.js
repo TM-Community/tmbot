@@ -80,7 +80,7 @@ module.exports = {
         : new Guild(message.guild.id),
       channel: (await db.has("channels", message.channel.id))
         ? await db.get("channels", message.channel.id)
-        : new Channel(message.channel.id),
+        : new Channel(message.channelId, message.guildId),
       user: (await db.has("users", message.author.id))
         ? await db.get("users", message.author.id)
         : new User(message.author.id),
