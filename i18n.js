@@ -71,13 +71,8 @@ class I18n {
     let pathArray = path.split(".");
 
     if (!this.has(path, locale)) {
-      switch (true) {
-        case this.has(path, this.defaultLocale):
-          return this.get(path, this.defaultLocale, variables);
-
-        case this.has(path, "source"):
-          return this.get(path, "source", variables);
-      }
+      if (this.has(path, this.defaultLocale))
+        return this.get(path, this.defaultLocale, variables);
       return empty;
     }
 
@@ -94,9 +89,7 @@ class I18n {
     return string;
   }
   constructor() {
-    this.strings = loadFiles(this.directory, this.extension, {
-      exclude: this.isDev ? undefined : RegExp(`${this.directory}/source`),
-    });
+    this.strings = loadFiles(this.directory, this.extension);
     this.locales = this.strings.map((_value, key) => key);
   }
 }
