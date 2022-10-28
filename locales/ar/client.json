@@ -1,5 +1,5 @@
 {
   "ready": "سُجل الدخول باسم {{user}}",
   "slashCommands": "تم تحميل أوامر السلاش لـ{{count}} سيرفر",
-  "guildCreate": "انظم إلى السيرفر {{guild}} {{id}}"
+  "guildCreate": "انضم إلى السيرفر `{{guild}}`({{id}})"
 }
