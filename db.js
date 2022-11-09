@@ -212,7 +212,7 @@ class Channel {
   /**
    * @param {String} id
    * @param {String} guildId
-   * @param {{ locale?: String, blacklisted?: Boolean, filter: { max: Number, exclude: Boolean, extensions: String[] }, sticky: { content: String, color: String, lastId: String } }} data
+   * @param {{ locale?: String, blacklisted?: Boolean, filter: { max: Number, exclude: Boolean, extensions: String[] }, sticky: { content: String, color: String, lastId: String }, reactions: String[] }} data
    */
   constructor(id, guildId, data) {
     this._id = id;
@@ -222,6 +222,7 @@ class Channel {
     this.blacklisted = !!data?.blacklisted;
     this.filter = data?.filter;
     this.sticky = data?.sticky;
+    this.reactions = data?.reactions;
   }
 }
 class User {
