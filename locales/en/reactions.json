@@ -1,0 +1,30 @@
+{
+  "name": "reactions",
+  "description": "React to every message in a channel with specific reactions",
+  "notTextChannel": "<#{{channel}}> is not a text channel or i can't reach it (Check my permissions)",
+  "testing": "Testing the reactions...",
+  "noEmojis": "There's no emojis in:\n> \"{{emojisInput}}\"",
+  "noReactions": "I can't add ({{emojis}}) in <#{{channel}}>\n Check my permissions and make sure that you entered real emojis",
+  "maxReactions": "You can't add more than 5 reactions",
+  "set": "**New auto reactions for <#{{channel}}>:**",
+  "cleared": "**Disabled auto reactions in <#{{channel}}>**",
+  "setup": {
+    "name": "set",
+    "channel": {
+      "name": "channel",
+      "description": "Channel to add auto reactions in"
+    },
+    "emojis": {
+      "name": "emojis",
+      "description": "Emojis to react with, maximum 5 emojis"
+    }
+  },
+  "reset": {
+    "name": "reset",
+    "description": "Reset auto reactions for a channel",
+    "channel": {
+      "name": "channel",
+      "description": "Channel to reset auto reactions in"
+    }
+  }
+}
