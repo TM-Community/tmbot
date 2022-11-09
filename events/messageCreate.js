@@ -118,6 +118,12 @@ module.exports = {
       }
     }
 
+    if (data.channel.reactions[0]) {
+      for (reaction in reactions) {
+        await message.react(reaction).catch(() => {})
+      }
+    }
+
     if (data.channel.sticky) {
       const { content, color, lastId } = data.channel.sticky;
 
