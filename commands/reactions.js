@@ -113,9 +113,10 @@ module.exports = {
         const replyMessage = await interaction.editReply(
           i18n.get("reactions.set", locale, { channel: channel.id })
         );
-        for (e in channelData.reactions) {
-          await replyMessage.react(channelData.reactions[e]);
+        for (const emoji of channelData.reactions) {
+          await replyMessage.react(emoji);
         }
+        message.delete()
         break;
 
       case i18n.get("reactions.reset.name", data.guild.locale, {}, "reset"):
