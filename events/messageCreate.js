@@ -119,8 +119,10 @@ module.exports = {
     }
 
     if (data.channel.reactions?.[0]) {
-      for (reaction in reactions) {
-        await message.react(reaction).catch(() => {})
+      for (reaction of data.channel.reactions) {
+        try {
+          await message.react(reaction).catch(() => {})
+        } catch {}
       }
     }
 
