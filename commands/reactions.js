@@ -103,7 +103,7 @@ module.exports = {
 
         if (!channelData.reactions[0])
           return interaction.editReply(
-            i18n.get("reactions.noReactions", locale, { emojis: emojis.join(", "), channel })
+            i18n.get("reactions.noReactions", locale, { emojis: emojis.join(", "), channel: channel.id })
           );
 
         if (channelData.reactions.length > 5)
