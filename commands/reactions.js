@@ -94,12 +94,14 @@ module.exports = {
          * @type {Message}
          */
         const message = await channel.send(i18n.get("reactions.testing", locale));
-        for (e in emojis) {
-          await message.react(emojis[e]);
-          channelData.reactions.push(emojis[e]);
+        for (const emoji of emojis) {
+          try {
+            await message.react(emoji);
+            channelData.reactions.push(emoji);
+          } catch {}
         }
 
-        if (channelData.reactions[0])
+        if (!channelData.reactions[0])
           return interaction.editReply(
             i18n.get("reactions.noReactions", locale, { emojis: emojis.join(", "), channel })
           );
